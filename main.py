@@ -2,12 +2,81 @@
 
 from tkinter import * # import Tkinter library
 window = Tk()         # Create the application window
-
+window.title("Welcome to Fernando's Window")
 # Add a label with the text "Hello"
-lbl = Label(window, text="Hello, This is a new window! There is isn't really much more interesting on here, so you may now close it!")
+lbl = Label(window, text="Hello! You clicked the green little run button didnt you!",font=("Arial Bold", 20))
 
 # Place the label in the window at 0, 0
 lbl.grid(column=0, row=0)
 
+firstLabel = Label(window, text="This is called a Label by the way!", font=("Arial Bold", 10)) # Create the label
+firstLabel.grid(column=0, row=1)   
 
-window.mainloop()     # Keep the window open
+secondLabel = Label(window, text = "You may now close this window since there is nothing else to do. Am I Right?") # Create the label
+secondLabel.grid(column=0, row=2)              
+
+from tkinter.ttk import Progressbar
+ 
+bar = Progressbar(window, length=200)
+
+bar['value'] = 70
+from tkinter import *
+ 
+from tkinter.ttk import Progressbar
+ 
+from tkinter import ttk
+ 
+window.geometry('725x300')
+ 
+style = ttk.Style()
+ 
+style.theme_use('default')
+ 
+style.configure("black.Horizontal.TProgressbar", background='black')
+ 
+bar = Progressbar(window, length=200, style='black.Horizontal.TProgressbar')
+ 
+bar['value'] = 70
+ 
+bar.grid(column=0, row=9)
+
+from tkinter import Menu
+ 
+menu = Menu(window)
+ 
+new_item = Menu(menu, tearoff=0)
+
+new_item.add_command(label='New')
+new_item.add_separator()
+ 
+new_item.add_command(label='Edit')
+
+new_item.add_separator()
+
+new_item.add_command(label='Print')
+
+ 
+menu.add_cascade(label='File', menu=new_item)
+ 
+window.config(menu=menu)
+
+
+from tkinter import messagebox
+def clicked():
+ 
+    messagebox.showinfo('Thank you!', 'Thank you for agreeing!')
+
+btn = Button(window,text='Correct', command=clicked)
+ 
+btn.grid(column=0,row=8)
+from tkinter import messagebox
+ 
+res = messagebox.askquestion('Close Window','Do you want to close this window?')
+ 
+res = messagebox.askyesno('Close Window','Are you sure?')
+ 
+
+ 
+ 
+window.mainloop()
+ 
