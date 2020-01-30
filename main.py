@@ -12,8 +12,11 @@ lbl.grid(column=0, row=0)
 firstLabel = Label(window, text="This is called a Label by the way!", font=("Arial Bold", 10)) # Create the label
 firstLabel.grid(column=0, row=1)   
 
-secondLabel = Label(window, text = "You may now close this window since there is nothing else to do. Am I Right?") # Create the label
+secondLabel = Label(window, text = "You may now close this window since there is nothing else to do.", font=("Arial Bold", 10)) # Create the label
 secondLabel.grid(column=0, row=2)              
+
+thirdLabel = Label(window, text = "If you did click the green run button, agree to it below!") # Create the label
+thirdLabel.grid(column=0, row=8)    
 
 from tkinter.ttk import Progressbar
  
@@ -38,7 +41,7 @@ bar = Progressbar(window, length=200, style='black.Horizontal.TProgressbar')
  
 bar['value'] = 70
  
-bar.grid(column=0, row=9)
+bar.grid(column=0, row=10)
 
 from tkinter import Menu
  
@@ -59,24 +62,39 @@ new_item.add_command(label='Print')
 menu.add_cascade(label='File', menu=new_item)
  
 window.config(menu=menu)
+ 
+ 
 
 
+
+from tkinter import *
+ 
 from tkinter import messagebox
+ 
 def clicked():
  
-    messagebox.showinfo('Thank you!', 'Thank you for agreeing!')
+    messagebox.showinfo('Admit Page', 'Ha, I knew it!')
+ 
+btn = Button(window,text='Admit', command=clicked)
+ 
+btn.grid(column=0,row=9)
 
-btn = Button(window,text='Correct', command=clicked)
+# latest_tutorial.py
  
-btn.grid(column=0,row=8)
-from tkinter import messagebox
+import time
+from n/a import feed
+  
+def main():
+      """Print the latest tutorial from Real Python"""
+      tic = time.perf_counter()
+      tutorial = feed.get_article(0)
+toc = time.perf_counter()
+print(f"Downloaded the tutorial in {toc - tic:0.4f} seconds")
  
-res = messagebox.askquestion('Close Window','Do you want to close this window?')
+print(tutorial)
  
-res = messagebox.askyesno('Close Window','Are you sure?')
- 
+if __name__ == "__main__":
+     main()
 
- 
- 
 window.mainloop()
  
