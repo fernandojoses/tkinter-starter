@@ -90,32 +90,43 @@ btn = Button(window,text='Admit', command=clicked)
 btn.grid(column=0,row=9)
 
 # latest_tutorial.py
- 
-import time
-from n/a import feed
-  
-def main():
-      """Print the latest tutorial from Real Python"""
-      tic = time.perf_counter()
-      tutorial = feed.get_article(0)
-toc = time.perf_counter()
-print(f"Downloaded the tutorial in {toc - tic:0.4f} seconds")
- 
-print(tutorial)
- 
-if __name__ == "__main__":
-     main()
-
-window.mainloop()
- 
-btn = Button(window, text="Click", command=addToScore)
-btn.grid(column = 0 , row = 1)
-
-txt = Entry(window,width=10)
-txt.grid(column=1, row=0)
 
 
 
 window.mainloop()     # Keep the window open
 
 
+import pygame
+import sys
+import random
+import time
+
+class Snake():
+  def __init__(self):
+    self.position = [100,50]
+    self.body = [[100,50],[90,50],[80,50]]
+    self.direction = "RIGHT"
+    self.chnageDirectionTo = self.direction
+
+  def changeDirTo(self,dir):
+      if dir== "RIGHT" and not self.direction== "LEFT":
+    self.direction = "RIGHT"
+      if dir== "LEFT" and not self.direction== "RIGHT":
+      self.direction = "LEFT"
+      if dir== "UP" and not self.direction== "DOWN":
+      self.direction = "UP"
+      if dir== "DOWN" and not self.direction== "UP":
+      self.direction = "DOWN"
+
+  def move(self,foodPos):
+    if self.direction == "RIGHT":
+      self.position[0] += 10
+    if self.direction == "LEFT":
+      self.position[0] -= 10
+    if self.direction == "UP":
+      self.position[1] += 10
+    if self.direction == "UP":
+      self.position[1] += 10
+
+    
+    
