@@ -6,7 +6,17 @@ window.title("Welcome to Fernando's Window")
 # Add a label with the text "Hello"
 lbl = Label(window, text="Hello! You clicked the green little run button didnt you!",font=("Arial Bold", 20))
 
-# Place the label in the window at 0, 0
+score = 0
+
+def addToScore():
+  message = txt.get()
+  if message == "Jon":
+    lbl['text'] = "go away"
+  else:
+    lbl['text'] = "hello"
+
+# Add a label with the text "Hello"
+lbl = Label(window, text=score, font=("Arial Bold", 50))
 lbl.grid(column=0, row=0)
 
 firstLabel = Label(window, text="This is called a Label by the way!", font=("Arial Bold", 10)) # Create the label
@@ -98,3 +108,14 @@ if __name__ == "__main__":
 
 window.mainloop()
  
+btn = Button(window, text="Click", command=addToScore)
+btn.grid(column = 0 , row = 1)
+
+txt = Entry(window,width=10)
+txt.grid(column=1, row=0)
+
+
+
+window.mainloop()     # Keep the window open
+
+
